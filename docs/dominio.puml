@@ -1,0 +1,40 @@
+@startuml
+
+left to right direction
+skin rose
+
+entity Arriendo {
+
+Patente del Vehiculo
+Rut del cliente
+Cantidad de dias arrendado
+
+
+}
+
+entity Cliente {
+
+Rut
+Nombre
+Apellido
+Fecha de nacimiento
+Tipo de licencia
+
+}
+
+entity Vehiculo {
+
+Patente
+Numero de ruedas
+Tipo de Vehiculo
+Numero de asientos
+Estado
+}
+
+Cliente "1" -- "*" Vehiculo: inscribe
+
+(Vehiculo, Cliente) .. Arriendo: registro
+
+(Vehiculo, Cliente) .. Arriendo: devolver
+
+@enduml

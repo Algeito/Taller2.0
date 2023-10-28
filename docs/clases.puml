@@ -1,24 +1,27 @@
 @startuml
 skin rose
 !pragma useIntermediatePackages false
+left to right direction
 
 package Models {
     class Arriendo{
-        -patenteDeVehiculo: String
-        -rutCliente: String
         -fechaDeInicio: String
         -fechaDeTermino: String
-        +Arriendo( fechaDeInicio: String, fechaDeTermino: String, fechaDeInicio: String, fechaDeTermino: String)
-        +getPatenteDeVehiculo(): String
-        +getRutCliente(): String
+        +Arriendo( fechaDeInicio: String, fechaDeTermino: String, patenteDeVehiculo: String, rutCliente: String)
         +getFechaDeInicio(): String
         +getFechaDeTermino():String
+        +getListaCliente(): ListaCliente
+        +getListaVehiculo(): ListaVehiculo
+
     }
 
     class ListaArriendo{
         -cantidadDiasArrendado: String
         +ListaCliente(cantidadDiasArrendado: String)
         +agregar(arriendo: Arriendo): boolean
+        +devolver(vehiculo: Vehiculo): boolean
+        +obtener(posicion: int): Arriendo
+        +getCantidadArriendo(): int
 
     }
 
@@ -28,7 +31,10 @@ package Models {
         -apellido: String
         -fechaDeNacimiento: String
         -tipoDeLicencia: String
-
+        +Cliente(rut: String, nombre: String, tipoDeLicencia: String)
+        +getRut(): String
+        +getNombre(): String
+        +getTipoDeLicencia(): String
     }
 
     class ListaCliente{
@@ -38,9 +44,6 @@ package Models {
         +ListaCliente(nombreCliente: String, rut: String, tipoDeLicencia: String)
         +inscribir(cliente: Cliente):boolean
         +buscar(rut: String): Cliente
-        +buscar(nombre: String): Cliente
-        +buscar(apellido: String): Cliente
-        +buscar(fechaDeNacimiento String): Cliente
         +buscar(tipoDeLicencia): String
     }
 
@@ -63,9 +66,7 @@ package Models {
         +ListaVehiculo(patente: String)
         +inscribir(vehiculo: Vehiculo): boolean
         +buscar(patente: String): Vehiculo
-        +buscar(numeroDeRuedas: int): Vehiculo
         +buscar(tipoDeVehiculo; String): Vehiculo
-        +buscar(numeroDeAsientos: int): Vehiculo
         +buscar(estado: String): Vehiculo
     }
 }
@@ -94,7 +95,6 @@ package Services {
 Sistema <|.. SistemaImpl
 SistemaImpl *--> ListaArriendo: -listaArriendo: Arriendo[]
 SistemaImpl *--> ListaCliente: -listaCliente: Cliente[]
-SistemaImpl *--> ListaVehiculo: -listaVehiculo: Vehiculo[]
 
 ListaArriendo o--> Arriendo: -listaArriendo: Arriendo[]
 ListaCliente o--> "0..*"Cliente: -listaCliente: Cliente[]

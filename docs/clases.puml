@@ -8,11 +8,18 @@ package Models {
         -rutCliente: String
         -fechaDeInicio: String
         -fechaDeTermino: String
+        +Arriendo( fechaDeInicio: String, fechaDeTermino: String, fechaDeInicio: String, fechaDeTermino: String)
+        +getPatenteDeVehiculo(): String
+        +getRutCliente(): String
+        +getFechaDeInicio(): String
+        +getFechaDeTermino():String
     }
 
     class ListaArriendo{
         -cantidadDiasArrendado: String
         +ListaCliente(cantidadDiasArrendado: String)
+        +agregar(arriendo: Arriendo): boolean
+
     }
 
     class Cliente {
@@ -29,6 +36,12 @@ package Models {
         -rut: String
         -tipoDeLicencia: String
         +ListaCliente(nombreCliente: String, rut: String, tipoDeLicencia: String)
+        +inscribir(cliente: Cliente):boolean
+        +buscar(rut: String): Cliente
+        +buscar(nombre: String): Cliente
+        +buscar(apellido: String): Cliente
+        +buscar(fechaDeNacimiento String): Cliente
+        +buscar(tipoDeLicencia): String
     }
 
     class Vehiculo{
@@ -37,19 +50,33 @@ package Models {
         -tipoDeVehiculo: String
         -numeroDeAsientos: int
         -estado: String
+        +Vehiculo(patente: String, numeroDeRuedas: int, tipoDeVehiculo: String, numeroDeAsientos: int, estado: String)
+        +getPatente(): String
+        +getNumeroDeRuedas(): int
+        +getTipoDeVehiculo(): String
+        +getNumeroDeAsientos(): int
+        +getEstado(): String
     }
 
     class ListaVehiculo{
         -patente: String
         +ListaVehiculo(patente: String)
+        +inscribir(vehiculo: Vehiculo): boolean
+        +buscar(patente: String): Vehiculo
+        +buscar(numeroDeRuedas: int): Vehiculo
+        +buscar(tipoDeVehiculo; String): Vehiculo
+        +buscar(numeroDeAsientos: int): Vehiculo
+        +buscar(estado: String): Vehiculo
     }
 }
 
 package Services {
     interface Sistema{
-        +cargarArchivo(nombreArchivo: String): boolean
+        +cargarArchivoCliente(nombreArchivo: String): boolean
         +inscribirCliente(rut: String, nombre: String, apellido: String, fechaDeNacimiento: String): boolean
+        +cargarArchivoVehiculo(nombreArchivo: String): boolean
         +inscribirVehiculo(patente: String, numeroDeRuedas: int, numeroDeAsientos: int, tipoDeVehiculo: String, estado: String): boolean
+        +cargarArchivoArriendo(nombreArchivo: String): boolean
         +registrarArriendo(patenteDeVehiculo: String, rutCliente: String, cantidadDiasArrendado: int): boolean
         +devolucionDeVehiculo(rutCliente: String): String[]
         +desplegarEstadisticas(): String[]

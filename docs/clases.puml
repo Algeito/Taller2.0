@@ -57,7 +57,7 @@ package Services {
     }
 
     class SistemaImpl{
-        +SistemaImpl(cantidadDiasArrendado: int,
+        +SistemaImpl(cantidadDiasArrendado: int, patenteDeVehiculo: String, rutCliente: String)
 
     }
 }
@@ -65,9 +65,9 @@ package Services {
 
 
 Sistema <|.. SistemaImpl
-SistemaImpl *--> ListaArriendo
-SistemaImpl *--> ListaCliente
-SistemaImpl *--> ListaVehiculo
+SistemaImpl *--> ListaArriendo: -listaArriendo: Arriendo[]
+SistemaImpl *--> ListaCliente: -listaCliente: Cliente[]
+SistemaImpl *--> ListaVehiculo: -listaVehiculo: Vehiculo[]
 
 ListaArriendo o--> Arriendo: -listaArriendo: Arriendo[]
 ListaCliente o--> "0..*"Cliente: -listaCliente: Cliente[]

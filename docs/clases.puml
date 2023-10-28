@@ -1,7 +1,78 @@
 @startuml
+skin rose
+!pragma useIntermediatePackages false
 
-class Arriendo{
+package Models {
+    class Arriendo{
+        -patenteDeVehiculo: String
+        -rutCliente: String
+        -fechaDeInicio: String
+        -fechaDeTermino: String
+    }
+
+    class ListaArriendo{
+        -cantidadDiasArrendado: String
+        +ListaCliente(cantidadDiasArrendado: String)
+    }
+
+    class Cliente {
+        -rut: String
+        -nombre: String
+        -apellido: String
+        -fechaDeNacimiento: String
+        -tipoDeLicencia: String
+
+    }
+
+    class ListaCliente{
+        -nombreCliente: String
+        -rut: String
+        -tipoDeLicencia: String
+        +ListaCliente(nombreCliente: String, rut: String, tipoDeLicencia: String)
+    }
+
+    class Vehiculo{
+        -patente: String
+        -numeroDeRuedas: int
+        -tipoDeVehiculo: String
+        -numeroDeAsientos: int
+        -estado: String
+    }
+
+    class ListaVehiculo{
+        -patente: String
+        +ListaVehiculo(patente: String)
+    }
 }
 
+package Services {
+    interface Sistema{
+        +cargarArchivo(nombreArchivo: String): boolean
+        +inscribirCliente(rut: String, nombre: String, apellido: String, fechaDeNacimiento: String): boolean
+        +inscribirVehiculo(patente: String, numeroDeRuedas: int, numeroDeAsientos: int, tipoDeVehiculo: String, estado: String): boolean
+        +registrarArriendo(patenteDeVehiculo: String, rutCliente: String, cantidadDiasArrendado: int): boolean
+        +devolucionDeVehiculo(rutCliente: String): String[]
+        +desplegarEstadisticas(): String[]
+        +guardarArchivos(): void
+    }
+
+    class SistemaImpl{
+        +SistemaImpl(cantidadDiasArrendado: int,
+
+    }
+}
+
+
+
+Sistema <|.. SistemaImpl
+SistemaImpl *--> ListaArriendo
+SistemaImpl *--> ListaCliente
+SistemaImpl *--> ListaVehiculo
+
+ListaArriendo o--> Arriendo: -listaArriendo: Arriendo[]
+ListaCliente o--> "0..*"Cliente: -listaCliente: Cliente[]
+ListaVehiculo o--> Vehiculo: -listaVehiculo: Vehiculo[]
+Arriendo *--> ListaCliente: -listaCliente: Cliente
+Arriendo *--> ListaVehiculo: -listaVehiculo: Vehiculo
 
 @enduml

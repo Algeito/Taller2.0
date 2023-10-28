@@ -31,18 +31,21 @@ package Models {
         -apellido: String
         -fechaDeNacimiento: String
         -tipoDeLicencia: String
-        +Cliente(rut: String, nombre: String, tipoDeLicencia: String)
+        +Cliente(rut: String, nombre: String, tipoDeLicencia: String, fechaDeNacimiento: String, apellido: String)
         +getRut(): String
         +getNombre(): String
+        +getApellido(): String
         +getTipoDeLicencia(): String
+        +getFechaDeNacimiento(): String
+
     }
 
     class ListaCliente{
-        -nombreCliente: String
-        -rut: String
-        -tipoDeLicencia: String
-        +ListaCliente(nombreCliente: String, rut: String, tipoDeLicencia: String)
+        -canidadCliente: int
+        -cantidadMaxima: int
+        +ListaCliente(cantidadMaxima: int)
         +inscribir(cliente: Cliente):boolean
+        +getCantidadMaxima():
         +buscar(rut: String): Cliente
         +buscar(tipoDeLicencia): String
     }
@@ -62,8 +65,10 @@ package Models {
     }
 
     class ListaVehiculo{
-        -patente: String
-        +ListaVehiculo(patente: String)
+        -cantiadVehiculo: int
+        -cantidadMaxima: int
+        +ListaVehiculo(cantidadMaxima: int)
+        +getCantidadMaxima(): int
         +inscribir(vehiculo: Vehiculo): boolean
         +buscar(patente: String): Vehiculo
         +buscar(tipoDeVehiculo; String): Vehiculo

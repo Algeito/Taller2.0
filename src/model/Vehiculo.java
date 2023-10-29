@@ -1,3 +1,5 @@
+package model;
+
 /**
  * Clase que represeta un vehiculo a través de su patente, numero de ruedas, tipo de vehiculo, numero de asientos y estado.
  */
@@ -27,7 +29,7 @@ public class Vehiculo {
      * Constructor de la clase vehiculo.
      * @param patente Patente del vehiculo.
      * @param numerosDeRuedas Numero de ruedas del vehiculo.
-     * @param tipoDeVehiculo Tipo de Vehiculo.
+     * @param tipoDeVehiculo Tipo de model.Vehiculo.
      * @param numeroDeAsiento Numero de asientos del vehiculo.
      * @param estado Estado del vehiculo.
      */

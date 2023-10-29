@@ -6,20 +6,24 @@ left to right direction
 package Models {
     class Arriendo{
         -rutCliene: String
-        -patenteDeVehiculo String
+        -patenteVehiculo String
         -fechaDeInicio: String
         -fechaDeTermino: String
-        +Arriendo( fechaDeInicio: String, fechaDeTermino: String, patenteDeVehiculo: String, rutCliente: String)
+        +Arriendo( fechaDeInicio: String, fechaDeTermino: String, patenteVehiculo: String, rutCliente: String)
         +getFechaDeInicio(): String
         +getFechaDeTermino():String
+        +getPatenteVehiculo(): String
+        +getRutCliente(): String
         +getListaCliente(): ListaCliente
         +getListaVehiculo(): ListaVehiculo
 
     }
 
     class ListaArriendo{
+        -cantidadArriendo: int
+        -cantidadMaxima:int
         -cantidadDiasArrendado: String
-        +ListaCliente(cantidadDiasArrendado: String)
+        +ListaCliente(cantidadMaxima: int)
         +agregar(arriendo: Arriendo): boolean
         +devolver(vehiculo: Vehiculo): boolean
         +eliminar(rutCliente: String): boolean

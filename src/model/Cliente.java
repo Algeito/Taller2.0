@@ -1,3 +1,5 @@
+package model;
+
 /**
  * Clase que representa un cliente a través de su Rut, nombre, apellido, fecha de nacimiento y tipo de licencia.
  */

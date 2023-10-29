@@ -1,3 +1,7 @@
+package collection;
+
+import model.Cliente;
+
 /**
  * Clase que representa la lista de clientes, con sus atributos cantidad cliente y cantidad maxima.
  */
@@ -28,7 +32,7 @@ public class ListaCliente {
 
     /**
      * Inscribe un cliente a la lista de clientes.
-     * @param cliente Cliente a inscribir
+     * @param cliente model.Cliente a inscribir
      * @return True si hay espacio en la lista y el Rut del cliente no existe previamente, false en el caso contrario.
      */
     public boolean inscribir(Cliente cliente){

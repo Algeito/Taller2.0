@@ -1,3 +1,7 @@
+package collection;
+
+import model.Vehiculo;
+
 /**
  * Lista que representa la cantidad de vehiculos, con los atributos cantidad de vehiculos y cantidad maxima de vehiculos.
  */
@@ -28,7 +32,7 @@ public class ListaVehiculo {
 
     /**
      * Inscribe un vehiculo a la lista vehiculos.
-     * @param vehiculo Vehiculo a inscribir.
+     * @param vehiculo model.Vehiculo a inscribir.
      * @return True si hay espacio en la lista y la patente no existe previamente, false en el caso contrario.
      */
     public boolean inscribir(Vehiculo vehiculo){

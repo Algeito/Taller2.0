@@ -22,8 +22,9 @@ package Models {
     class ListaArriendo{
         -cantidadArriendo: int
         -cantidadMaxima:int
-        -cantidadDiasArrendado: String
+        -cantidadDiasArrendado: int
         +ListaCliente(cantidadMaxima: int)
+        +desplegar(cantidadArriendo: int): boolean
         +agregar(arriendo: Arriendo): boolean
         +devolver(vehiculo: Vehiculo): boolean
         +eliminar(rutCliente: String): boolean

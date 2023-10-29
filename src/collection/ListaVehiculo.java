@@ -32,7 +32,7 @@ public class ListaVehiculo {
 
     /**
      * Inscribe un vehiculo a la lista vehiculos.
-     * @param vehiculo model.Vehiculo a inscribir.
+     * @param vehiculo Vehiculo a inscribir.
      * @return True si hay espacio en la lista y la patente no existe previamente, false en el caso contrario.
      */
     public boolean inscribir(Vehiculo vehiculo){
@@ -47,7 +47,7 @@ public class ListaVehiculo {
                 return false;
             }
         }
-        //Inscribir al cliente a la lista cliente.
+        //Inscribir el vehiculo a la lista vehiculo.
         this.listaVehiculo[this.cantidadVehiculo] = vehiculo;
         this.cantidadVehiculo++;
         return true;
@@ -98,7 +98,7 @@ public class ListaVehiculo {
     }
 
     /**
-     * Obtener el vehiculo a travé de su posicion en la lista vehiculos.
+     * Obtener el vehiculo a través de su posicion en la lista vehiculos.
      * @param posicion Posicion del vehiculo a obtener.
      * @return Si la posicion del vehiculo esta dentro de los parametros retornara null, en caso contrario retorna la posicion en la lista vehiculo.
      */

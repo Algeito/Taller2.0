@@ -19,8 +19,8 @@ public class SistemaImpl implements Sistema {
     public SistemaImpl(int cantidadDiasArrendado, String patenteDeVehiculo, String rutCliente){
 
         this.listaArriendo = new ListaArriendo(cantidadDiasArrendado);
-        this.listaCliente = new ListaCliente(5);
-        this.listaVehiculo = new ListaVehiculo(6);
+        this.listaCliente = new ListaCliente(patenteDeVehiculo);
+        this.listaVehiculo = new ListaVehiculo(rutCliente);
     }
 
     /**

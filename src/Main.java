@@ -7,7 +7,7 @@ import static edu.princeton.cs.stdlib.StdOut.print;
 
 public class Main {
     public static void main(String[] args) {
-        Sistema sistema = new SistemaImpl(1000, 1000, 1000);
+        Sistema sistema = new SistemaImpl(0, XX.XXX-NN, 1000);
         boolean cargaArchivo = sistema.cargarArchivoDeArriendo("Arriendo.txt");
 
         if (!cargaArchivo) {

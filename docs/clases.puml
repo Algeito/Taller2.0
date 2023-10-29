@@ -5,6 +5,8 @@ left to right direction
 
 package Models {
     class Arriendo{
+        -rutCliene: String
+        -patenteDeVehiculo String
         -fechaDeInicio: String
         -fechaDeTermino: String
         +Arriendo( fechaDeInicio: String, fechaDeTermino: String, patenteDeVehiculo: String, rutCliente: String)
@@ -20,6 +22,7 @@ package Models {
         +ListaCliente(cantidadDiasArrendado: String)
         +agregar(arriendo: Arriendo): boolean
         +devolver(vehiculo: Vehiculo): boolean
+        +eliminar(rutCliente: String): boolean
         +obtener(posicion: int): Arriendo
         +getCantidadArriendo(): int
 
@@ -45,9 +48,12 @@ package Models {
         -cantidadMaxima: int
         +ListaCliente(cantidadMaxima: int)
         +inscribir(cliente: Cliente):boolean
-        +getCantidadMaxima():
+        +obtener(posicion: int): Cliente
+        +eliminar(rut: String):boolean
         +buscar(rut: String): Cliente
-        +buscar(tipoDeLicencia): String
+        +buscar(tipoDeLicencia: String): Cliente
+        +getCantidadMaxima(): int
+        +getCantidadCliente(): int
     }
 
     class Vehiculo{
@@ -70,6 +76,8 @@ package Models {
         +ListaVehiculo(cantidadMaxima: int)
         +getCantidadMaxima(): int
         +inscribir(vehiculo: Vehiculo): boolean
+        +obtener(posicion: int): Vehiculo
+        +eliminar(patente: String): boolean
         +buscar(patente: String): Vehiculo
         +buscar(tipoDeVehiculo; String): Vehiculo
         +buscar(estado: String): Vehiculo

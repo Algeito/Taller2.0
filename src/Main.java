@@ -1,7 +1,10 @@
+import service.SistemaImpl;
+import service.Sistema;
+
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world");
+        Sistema sistema = new SistemaImpl(100,"","");
 
 
     }

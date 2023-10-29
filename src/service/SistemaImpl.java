@@ -6,6 +6,7 @@ import collection. ListaCliente;
 import collection. ListaVehiculo;
 import edu.princeton.cs.stdlib.In;
 import model.Cliente;
+import model.Vehiculo;
 
 public class SistemaImpl implements Sistema {
 
@@ -69,9 +70,10 @@ public class SistemaImpl implements Sistema {
      * @param fechaDeNacimiento
      * @return ..
      */
-    @Override
-    public boolean inscribirCliente(String rut, String nombre, String apellido, String fechaDeNacimiento) {
-        return false;
+    public boolean inscribir(String rut, String nombre, String apellido, String fechaDeNacimiento, String tipoDeLicencia) {
+        Cliente cliente = new Cliente(rut, nombre, apellido, fechaDeNacimiento, tipoDeLicencia);
+
+        return this.listaCliente.inscribir(cliente);
     }
 
     /**
@@ -79,10 +81,35 @@ public class SistemaImpl implements Sistema {
      *
      * @param nombreArchivo
      */
-    @Override
     public boolean cargarArchivoVehiculo(String nombreArchivo) {
-        return false;
+        In archivo = new In(nombreArchivo);
+        while (archivo.hasNextLine()) {
+            String linea = archivo.readLine();
+            String[] campos = linea.split(",");
+            String patente = campos[0];
+            int numeroDeRuedas = Integer.parseInt(campos[1]);
+            String tipoDeVehiculo = campos[2];
+            int numeroDeAsientos = Integer.parseInt(campos[3]);
+            String estado = campos[4];
+
+
+            Vehiculo vehiculo= new Vehiculo(patente, numeroDeRuedas,tipoDeVehiculo, numeroDeAsientos, estado);
+            boolean inscribir = this.listaVehiculo.inscribir(vehiculo);
+
+            if (inscribir) {
+                System.out.println("El nombre de cliente " + vehiculo + " ha sido inscrito correctamente.");
+            }else {
+                System.out.println("el nombre"+ vehiculo + " ya esta inscrito");
+            }
+
+
+        }
+        archivo.close();
+
+        return true;
+
     }
+
 
     /**
      * @param patente
@@ -94,7 +121,9 @@ public class SistemaImpl implements Sistema {
      */
     @Override
     public boolean inscribirVehiculo(String patente, int numeroDeRuedas, int numeroDeAsientos, String tipoDeVehiculo, String estado) {
-        return false;
+        Vehiculo vehiculo = new Vehiculo(patente, numeroDeRuedas, tipoDeVehiculo, numeroDeAsientos, estado);
+
+        return this.listaVehiculo.inscribir(vehiculo);
     }
 
     /**
@@ -109,7 +138,7 @@ public class SistemaImpl implements Sistema {
     /**
      * @return
      */
-    @Override
+
     public boolean registrarArriendo() {
         return false;
     }
@@ -117,7 +146,7 @@ public class SistemaImpl implements Sistema {
     /**
      * @return
      */
-    @Override
+
     public boolean devolucionDeVehiculo() {
         return false;
     }
@@ -125,7 +154,7 @@ public class SistemaImpl implements Sistema {
     /**
      * @return
      */
-    @Override
+
     public boolean desplegarEstadisticas() {
         return false;
     }
@@ -133,8 +162,9 @@ public class SistemaImpl implements Sistema {
     /**
      *
      */
-    @Override
+
     public void guardarArchivo() {
-        return false;
+
+        return ;
     }
 }

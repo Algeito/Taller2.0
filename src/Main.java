@@ -8,6 +8,7 @@ import static edu.princeton.cs.stdlib.StdOut.print;
 public class Main {
     public static void main(String[] args) {
         Sistema sistema = new SistemaImpl(0, "", "");
+
         boolean cargaArchivo = sistema.cargarArchivoDeArriendo("Arriendo.txt");
 
         if (!cargaArchivo) {
@@ -18,6 +19,7 @@ public class Main {
 
         if (!cargaArchivo) {
             print("Error en la cargar el archivo Clietes");
+
         }
 
         cargaArchivo = sistema.cargarArchivoVehiculo("Vehiculos.txt");

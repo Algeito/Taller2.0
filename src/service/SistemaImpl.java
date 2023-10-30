@@ -27,16 +27,16 @@ public class SistemaImpl implements Sistema {
     /**
      * Realiza la carga de un archivo de texto relacionado con todos los administradores
      *
-     * @param nombreArchivo ...
+     * @param nombreArchivoCliente ...
      * @return....
      */
 
     //todo repetir esta linea de codigo con los demas cargar archivos RECORDAR!!!
     @Override
-    public boolean cargarArchivoCliente(String nombreArchivo) {
-        In archivo = new In(nombreArchivo);
-        while (archivo.hasNextLine()) {
-            String linea = archivo.readLine();
+    public boolean cargarArchivoCliente(String nombreArchivoCliente) {
+        In archivoCliente = new In(nombreArchivoCliente);
+        while (archivoCliente.hasNextLine()) {
+            String linea = archivoCliente.readLine();
             String[] campos = linea.split(",");
             String rut = campos[0];
             String nombre = campos[1];
@@ -56,7 +56,7 @@ public class SistemaImpl implements Sistema {
 
 
         }
-        archivo.close();
+        archivoCliente.close();
 
         return true;
 
@@ -125,12 +125,12 @@ public class SistemaImpl implements Sistema {
     /**
      * blla bla bla
      *
-     * @param nombreArchivo
+     * @param nombreArchivoVehiculo
      */
-    public boolean cargarArchivoVehiculo(String nombreArchivo) {
-        In archivo = new In(nombreArchivo);
-        while (archivo.hasNextLine()) {
-            String linea = archivo.readLine();
+    public boolean cargarArchivoVehiculo(String nombreArchivoVehiculo) {
+        In archivoVehiculo = new In(nombreArchivoVehiculo);
+        while (archivoVehiculo.hasNextLine()) {
+            String linea = archivoVehiculo.readLine();
             String[] campos = linea.split(",");
             String patente = campos[0];
             int numeroDeRuedas = Integer.parseInt(campos[1]);
@@ -150,7 +150,7 @@ public class SistemaImpl implements Sistema {
 
 
         }
-        archivo.close();
+        archivoVehiculo.close();
 
         return true;
 

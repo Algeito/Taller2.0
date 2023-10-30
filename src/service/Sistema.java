@@ -10,9 +10,9 @@ public interface Sistema {
 
 
     /**
-     * Realiza la carga de un archivo de texto relacionado con todos los clientes
-     * @param nombreArchivo Nombre del archivo de texto que contiene todos los clientes
-     * @return True si el archivo fue cargado exitosamente, false en caso contrario
+     * Realiza la carga de un archivo de texto relacionado con todos los clientes.
+     * @param nombreArchivo Nombre del archivo de texto que contiene todos los clientes.
+     * @return True si el archivo fue cargado exitosamente, false en caso contrario.
      */
     boolean cargarArchivoCliente(String nombreArchivo);
 
@@ -23,27 +23,19 @@ public interface Sistema {
      * @param apellido Apellido del cliente.
      * @param fechaDeNacimiento Fecha de nacimiento del cliente.
      * @param tipoDeLicencia Tipo de licencia del cliente.
-     * @return True si se logra inscribir
+     * @return True si se logra inscribir el cliente, false en caso contrario.
      */
     boolean inscribir(String rut, String nombre, String apellido, String fechaDeNacimiento, String tipoDeLicencia);
 
     /**
-     * bla bla bla
-     * @param nombreArchivo
+     * Realiza la carga de un archivo de texto relacionado con todos los vehiculos.
+     * @param nombreArchivo Nombre del archivo de texto que contiene todos los vehiculos.
+     * @return True si el archivo fue cargado exitosamente, false en caso contrario.
      */
 
     boolean cargarArchivoVehiculo(String nombreArchivo);
 
-    /**
-     *
-     *
-     * @param patente
-     * @param numeroDeRuedas
-     * @param numeroDeAsientos
-     * @param tipoDeVehiculo
-     * @param estado
-     * @return
-     */
+    
     boolean inscribirVehiculo(String patente, int numeroDeRuedas, int numeroDeAsientos, String tipoDeVehiculo, String estado);
 
     /**

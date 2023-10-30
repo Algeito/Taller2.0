@@ -9,7 +9,7 @@ import static edu.princeton.cs.stdlib.StdOut.print;
 
 public class Main {
     public static void main(String[] args) {
-        Sistema sistema = new SistemaImpl(0, XX.XXX-NN, 1000);
+        Sistema sistema = new SistemaImpl(0, "", "");
         boolean cargaArchivo = sistema.cargarArchivoDeArriendo("Arriendo.txt");
 
         if (!cargaArchivo) {
@@ -78,7 +78,7 @@ public class Main {
                 System.out.println("Ingresar Nombre: ");
                 System.out.println("Ingresar Apellido: ");
 
-                return Cliente cliente();
+                return;
             }
 
             public static boolean ingresarVehiculo(){
@@ -111,6 +111,7 @@ public class Main {
         }
 
     }
+
 
 
 

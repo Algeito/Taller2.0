@@ -65,6 +65,47 @@ public class SistemaImpl implements Sistema {
     @Override
     public boolean inscribir(String rut, String nombre, String apellido, String fechaDeNacimiento, String tipoDeLicencia) {
         Cliente cliente = new Cliente(rut, nombre, apellido, fechaDeNacimiento, tipoDeLicencia);
+        class RutChilenoValidator {
+
+            public static boolean validarRut(String rut) {
+                // Eliminar puntos y espacios en blanco.
+                rut = rut.replace(".", "").replace("-", "").trim();
+
+                if (!rut.matches("\\d{7,8}[0-9Kk]")) {
+                    return false; // El formato del Rut es incorrecto
+                }
+
+                String cuerpoRut = rut.substring(0, rut.length() - 1);
+                char digitoVerificador = rut.charAt(rut.length() - 1);
+
+                int cuerpo;
+                try {
+                    cuerpo = Integer.parseInt(cuerpoRut);
+                } catch (NumberFormatException e) {
+                    return false; // El cuerpo del Rut no es un numero valido.
+                }
+
+                // Calcular el digito verificador esperado.
+                int suma = 0;
+                int multiplicador = 2;
+                for (int i = cuerpoRut.length() - 1; i >= 0; i--) {
+                    suma += Integer.parseInt(cuerpoRut.charAt(i) + "") * multiplicador;
+                    multiplicador = multiplicador < 7 ? multiplicador + 1 : 2;
+                }
+                int digitoVerificadorEsperado = 11 - (suma % 11);
+                if (digitoVerificadorEsperado == 11) {
+                    digitoVerificadorEsperado = 0;
+                }
+
+                // Comprobar si el digito verificador es valido,
+                if ((digitoVerificador == 'K' || digitoVerificador == 'k') && digitoVerificadorEsperado == 10) {
+                    return true;
+                }
+
+                return digitoVerificador == Character.forDigit(digitoVerificadorEsperado, 10);
+            }
+
+        }
 
         return this.listaCliente.inscribir(cliente);
     }

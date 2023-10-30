@@ -118,6 +118,7 @@ public class ListaArriendo {
         return this.listaArriendo[posicion];
     }
 
+
     public int getCantidadArriendo() {
         return cantidadArriendo;
     }

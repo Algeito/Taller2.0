@@ -33,13 +33,15 @@ public class Main {
     }
 
     public static void imprimirMenu() {
-        System.out.println("------Menu------");
-        System.out.println("1. Ingresar Cliente");
-        System.out.println("2. Ingresar Vehiculo");
-        System.out.println("3. Registrar Arriendo");
-        System.out.println("4. Gestionar Devolucion");
-        System.out.println("5. Estadisticas");
-        System.out.println("6. Salir y Guardar");
+        System.out.println("************************");
+        System.out.println("  Sistema de Arriendos  ");
+        System.out.println("[1] Ingresar Cliente    ");
+        System.out.println("[2] Ingresar Vehiculo   ");
+        System.out.println("[3] Registrar Arriendo  ");
+        System.out.println("[4] Gestionar Devolucion");
+        System.out.println("[5] Estadisticas        ");
+        System.out.println("[6] Salir y Guardar     ");
+        System.out.println("************************");
     }
 
     public static void menu(){
@@ -74,9 +76,11 @@ public class Main {
                 return;
             }
             public static String ingresar() {
-                System.out.println("Ingresar Rut: ");
-                System.out.println("Ingresar Nombre: ");
-                System.out.println("Ingresar Apellido: ");
+                System.out.println("********************");
+                System.out.println(" Ingresar Cliente   ");
+                System.out.println(" Ingresar Rut:      ");
+                System.out.println(" Ingresar Nombre:   ");
+                System.out.println(" Ingresar Apellido: ");
 
                 return;
             }

@@ -5,6 +5,7 @@ import collection. ListaArriendo;
 import collection. ListaCliente;
 import collection. ListaVehiculo;
 import edu.princeton.cs.stdlib.In;
+import model.Arriendo;
 import model.Cliente;
 import model.Vehiculo;
 
@@ -61,6 +62,13 @@ public class SistemaImpl implements Sistema {
 
     }
 
+    @Override
+    public boolean inscribir(String rut, String nombre, String apellido, String fechaDeNacimiento, String tipoDeLicencia) {
+        Cliente cliente = new Cliente(rut, nombre, apellido, fechaDeNacimiento, tipoDeLicencia);
+
+        return this.listaCliente.inscribir(cliente);
+    }
+
     /**
      * bla bla bla
      *
@@ -70,11 +78,7 @@ public class SistemaImpl implements Sistema {
      * @param fechaDeNacimiento
      * @return ..
      */
-    public boolean inscribir(String rut, String nombre, String apellido, String fechaDeNacimiento, String tipoDeLicencia) {
-        Cliente cliente = new Cliente(rut, nombre, apellido, fechaDeNacimiento, tipoDeLicencia);
 
-        return this.listaCliente.inscribir(cliente);
-    }
 
     /**
      * blla bla bla
@@ -132,7 +136,41 @@ public class SistemaImpl implements Sistema {
      */
     @Override
     public boolean cargarArchivoDeArriendo(String nombreArchivo) {
+        In archivo = new In(nombreArchivo);
+        while (archivo.hasNextLine()) {
+            String linea = archivo.readLine();
+            String[] campos = linea.split(",");
+            String patenteVehiculo = campos[0];
+            String rutCliente = campos[1];
+            int cantidadDiasArriendo = Integer.parseInt(campos[2]);
+
+
+            Arriendo arriendo= new Arriendo(patenteVehiculo, rutCliente,cantidadDiasArriendo);
+            boolean agregar = this.listaArriendo.agregar(arriendo);
+
+            if (inscribir) {
+                System.out.println("El nombre de cliente " + vehiculo + " ha sido inscrito correctamente.");
+            }else {
+                System.out.println("el nombre"+ vehiculo + " ya esta inscrito");
+            }
+
+
+        }
+        archivo.close();
+
+        return true;
+
+    }
+    }
+
+    @Override
+    public boolean registrarArriendo(String patenteDeVehiculo, String rutCliente, int cantidadDiasArrendado) {
         return false;
+    }
+
+    @Override
+    public String[] devolucionDeVehiculo(String rutCliente) {
+        return new String[0];
     }
 
     /**

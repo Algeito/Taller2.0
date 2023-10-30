@@ -23,7 +23,7 @@ public class ListaCliente {
      * Constructor de la clase lista cliente.
      * @param cantidadMaxima Cantidad Maxima de clientes
      */
-    public ListaCliente(String cantidadMaxima) {
+    public ListaCliente(int cantidadMaxima) {
         this.listaCliente = new Cliente[cantidadMaxima];
         this.cantidadCliente = 0;
         this.cantidadMaxima = cantidadMaxima;

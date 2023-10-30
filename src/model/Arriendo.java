@@ -49,6 +49,10 @@ public class Arriendo {
         this.listaCliente = new ListaCliente(capacidadMaxima);
     }
 
+    public Arriendo(String patenteVehiculo, String rutCliente, int cantidadDiasArriendo) {
+        return;
+    }
+
     /**
      * Metodo get del atributo rut del cliente.
      * @return Rut del cliente en el arriendo.

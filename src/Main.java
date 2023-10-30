@@ -1,5 +1,3 @@
-import edu.princeton.cs.stdlib.StdOut;
-import model.Cliente;
 import service.SistemaImpl;
 import service.Sistema;
 import java.util.Scanner;
@@ -54,61 +52,25 @@ public class Main {
 
             switch (opcion){
                 case "1":
-                    String ingresar = ingresar();
+                    int ingresar = Integer.parseInt(ingresar());
                     System.out.println();
                     break;
                 case "2":
-                    int ingresarVehiculo = ingresarVehiculo();
+                    boolean ingresarVehiculo = ingresarVehiculo();
                     System.out.println();
                     break;
                 case "3":
-                    int RegistrarArriendo = RegistrarArriendo();
+                    boolean RegistrarArriendo = RegistrarArriendo();
                     System.out.println();
                     break;
                 case "4":
-                    int GestionarDevolucion = GestionarDevolucion();
+                    boolean GestionarDevolucion = GestionarDevolucion();
                     System.out.println();
                     break;
                 case "5":
-                    int estadisticas = estadisticas();
+                    boolean estadisticas = estadisticas();
                     System.out.println();
                     break;
-                return;
-            }
-            public static String ingresar() {
-                System.out.println("********************");
-                System.out.println(" Ingresar Cliente   ");
-                System.out.println(" Ingresar Rut:      ");
-                System.out.println(" Ingresar Nombre:   ");
-                System.out.println(" Ingresar Apellido: ");
-
-                return;
-            }
-
-            public static boolean ingresarVehiculo(){
-                System.out.println("Ingresar Rut: ");
-                System.out.println("Ingresar Nombre: ");
-                System.out.println("Ingresar Apellido: ");
-
-                return ;
-            }
-            public static boolean RegistrarArriendo(){
-                System.out.println("Ingresar Rut: ");
-                System.out.println("Ingresar Nombre: ");
-                System.out.println("Ingresar Apellido: ");
-
-                return;
-            }
-
-            public static boolean GestionarDevolucion(){
-                System.out.println();
-
-                return;
-            }
-            public static boolean estadisticas(){
-                System.out.println();
-
-                return;
             }
             imprimirMenu();
             opcion = s.nextLine();
@@ -116,8 +78,41 @@ public class Main {
 
     }
 
+    public static String ingresar() {
+        System.out.println("********************");
+        System.out.println(" Ingresar Cliente   ");
+        System.out.println(" Ingresar Rut:      ");
+        System.out.println(" Ingresar Nombre:   ");
+        System.out.println(" Ingresar Apellido: ");
+
+        return ingresar();
+    }
+
+    public static boolean ingresarVehiculo(){
+        System.out.println("Ingresar Rut: ");
+        System.out.println("Ingresar Nombre: ");
+        System.out.println("Ingresar Apellido: ");
+
+        return ingresarVehiculo();
+    }
+    public static boolean RegistrarArriendo(){
+        System.out.println("Ingresar Rut: ");
+        System.out.println("Ingresar Nombre: ");
+        System.out.println("Ingresar Apellido: ");
+
+        return RegistrarArriendo();
+    }
+
+    public static boolean GestionarDevolucion(){
+        System.out.println();
+
+        return GestionarDevolucion();
+    }
+    public static boolean estadisticas(){
+        System.out.println();
+
+        return estadisticas();
+    }
 
 
-
-}
 }

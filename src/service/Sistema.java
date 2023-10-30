@@ -1,10 +1,5 @@
 package service;
 
-import edu.princeton.cs.stdlib.StdOut;
-import model.Cliente;
-
-import static service.SistemaImpl.inscribir;
-
 public interface Sistema {
 
 

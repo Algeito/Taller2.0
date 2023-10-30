@@ -20,8 +20,8 @@ public class SistemaImpl implements Sistema {
     public SistemaImpl(int cantidadDiasArrendado, String patenteDeVehiculo, String rutCliente){
 
         this.listaArriendo = new ListaArriendo(cantidadDiasArrendado);
-        this.listaCliente = new ListaCliente(patenteDeVehiculo);
-        this.listaVehiculo = new ListaVehiculo(rutCliente);
+        this.listaCliente = new ListaCliente(10);
+        this.listaVehiculo = new ListaVehiculo(12);
     }
 
     /**
@@ -96,6 +96,7 @@ public class SistemaImpl implements Sistema {
                 if (digitoVerificadorEsperado == 11) {
                     digitoVerificadorEsperado = 0;
                 }
+
 
                 // Comprobar si el digito verificador es valido,
                 if ((digitoVerificador == 'K' || digitoVerificador == 'k') && digitoVerificadorEsperado == 10) {
@@ -189,10 +190,10 @@ public class SistemaImpl implements Sistema {
             Arriendo arriendo= new Arriendo(patenteVehiculo, rutCliente,cantidadDiasArriendo);
             boolean agregar = this.listaArriendo.agregar(arriendo);
 
-            if (inscribir) {
-                System.out.println("El nombre de cliente " + vehiculo + " ha sido inscrito correctamente.");
+            if (agregar) {
+                System.out.println("El nombre de cliente " + arriendo + " ha sido inscrito correctamente.");
             }else {
-                System.out.println("el nombre"+ vehiculo + " ya esta inscrito");
+                System.out.println("el nombre"+ arriendo + " ya esta inscrito");
             }
 
 
@@ -201,7 +202,7 @@ public class SistemaImpl implements Sistema {
 
         return true;
 
-    }
+
     }
 
     @Override
@@ -234,8 +235,8 @@ public class SistemaImpl implements Sistema {
      * @return
      */
 
-    public boolean desplegarEstadisticas() {
-        return false;
+    public String[] desplegarEstadisticas() {
+        return desplegarEstadisticas();
     }
 
     /**

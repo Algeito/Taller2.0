@@ -1,6 +1,8 @@
 import edu.princeton.cs.stdlib.StdOut;
+import model.Cliente;
 import service.SistemaImpl;
 import service.Sistema;
+import java.util.Scanner;
 
 import static edu.princeton.cs.stdlib.StdOut.print;
 
@@ -26,47 +28,91 @@ public class Main {
             print("Error en cargar el archivo Vehiculos");
         }
 
-        menuPrincipal(sistema);
+        menu();
+
     }
-        //todo crear el sistema Arriendo donde se deven desplegar lo indicado, para busqueda de clientes con el rut se hace una comparacion recorriendo la lista cliente para ver si coincide el rut con lo que estan agregados,
-        //todo, crear un archivo txt donde guarde los datos en forma de estadisticas y uno donde guarde el la lista de arriendo
-    public static void menuPrincipal(Sistema sistema) {
-        boolean salirMenuPrincipal = false;
-        int opcion;
-        String respuestaDelSistema = "";
 
-        while (!salirMenuPrincipal) {
-            StdOut.println(":::Menu Principal:::");
-            StdOut.println("[1] Ingresar Cliente");
-            StdOut.println("[2] ingresar Vehiculo");
-            StdOut.println("[3] Registrar Arriendo");
-            StdOut.println("[4] Gestionar Devolucion");
-            StdOut.println("[5] Estadisticas");
-            StdOut.println("[6] Salir y Guardar");
+    public static void imprimirMenu() {
+        System.out.println("------Menu------");
+        System.out.println("1. Ingresar Cliente");
+        System.out.println("2. Ingresar Vehiculo");
+        System.out.println("3. Registrar Arriendo");
+        System.out.println("4. Gestionar Devolucion");
+        System.out.println("5. Estadisticas");
+        System.out.println("6. Salir y Guardar");
+    }
 
-            opcion = ("Ingrese una opcion entre 1 y 6", true, 1, 6);
+    public static void menu(){
 
-            if (opcion == 1) {
-                respuestaDelSistema = sistema.inscribir();
+        Scanner s = new Scanner(System.in);
+        imprimirMenu();
+        String opcion = s.nextLine();
 
-            } else if (opcion == 2) {
-                respuestaDelSistema = sistema.inscribirVehiculo();
+        while (!opcion.equals("6")){
 
-            } else if (opcion == 3) {
-                respuestaDelSistema = sistema.registrarArriendo();
+            switch (opcion){
+                case "1":
+                    String ingresar = ingresar();
+                    System.out.println();
+                    break;
+                case "2":
+                    int ingresarVehiculo = ingresarVehiculo();
+                    System.out.println();
+                    break;
+                case "3":
+                    int RegistrarArriendo = RegistrarArriendo();
+                    System.out.println();
+                    break;
+                case "4":
+                    int GestionarDevolucion = GestionarDevolucion();
+                    System.out.println();
+                    break;
+                case "5":
+                    int estadisticas = estadisticas();
+                    System.out.println();
+                    break;
+                return;
+            }
+            public static String ingresar() {
+                System.out.println("Ingresar Rut: ");
+                System.out.println("Ingresar Nombre: ");
+                System.out.println("Ingresar Apellido: ");
 
-            } else if (opcion == 4) {
-                respuestaDelSistema = sistema. ();
-
-            } else if (opcion == 5) {
-                respuestaDelSistema = sistema.desplegarTodasLasDestrezas();
-
-            } else if (opcion == 6) {
-                salirMenuPrincipal = true;
-                respuestaDelSistema = "Hasta Luego!";
+                return Cliente cliente();
             }
 
-            StdOut.println(respuestaDelSistema);
+            public static boolean ingresarVehiculo(){
+                System.out.println("Ingresar Rut: ");
+                System.out.println("Ingresar Nombre: ");
+                System.out.println("Ingresar Apellido: ");
+
+                return ;
+            }
+            public static boolean RegistrarArriendo(){
+                System.out.println("Ingresar Rut: ");
+                System.out.println("Ingresar Nombre: ");
+                System.out.println("Ingresar Apellido: ");
+
+                return;
+            }
+
+            public static boolean GestionarDevolucion(){
+                System.out.println();
+
+                return;
+            }
+            public static boolean estadisticas(){
+                System.out.println();
+
+                return;
+            }
+            imprimirMenu();
+            opcion = s.nextLine();
         }
+
     }
+
+
+
+}
 }

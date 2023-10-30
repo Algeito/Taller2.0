@@ -112,7 +112,6 @@ public class SistemaImpl implements Sistema {
     }
 
     /**
-     * bla bla bla
      *
      * @param rut
      * @param nombre
@@ -123,7 +122,6 @@ public class SistemaImpl implements Sistema {
 
 
     /**
-     * blla bla bla
      *
      * @param nombreArchivoVehiculo
      */
